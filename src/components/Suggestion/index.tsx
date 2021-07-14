@@ -1,8 +1,7 @@
 import _ from "lodash";
-import moment from "moment";
 import React, { FC, useState } from "react";
 import { Suggestion as SuggestionType } from "../../@types";
-import { trimText } from "../../utils/index";
+import { trimText, getTime } from "../../utils/index";
 import { Tag } from "../Tag";
 
 interface SuggestionProps {
@@ -13,6 +12,7 @@ const Suggestion: FC<SuggestionProps> = ({ data }) => {
   const [showingMore, setShowingMore] = useState(false);
   const { suggestion, timestamp } = data;
   const { trimmed, text } = trimText(suggestion);
+  const time = getTime(timestamp);
   const getTags = () => {
     const tags = _.omit(data, ["suggestion", "timestamp"]);
     const keys = Object.keys(tags).sort();
@@ -32,9 +32,7 @@ const Suggestion: FC<SuggestionProps> = ({ data }) => {
     <div className="p-5 hover:bg-blue-50 cursor-pointer border-b-2 border-gray-100">
       <div className="flex justify-between items-center">
         <div className="mb-5 space-x-2">{getTags()}</div>
-        <p className="text-gray-500 text-xs">
-          {moment(timestamp).format("D/MM/YYYY")}
-        </p>
+        <p className="text-gray-500 text-xs">{time}</p>
       </div>
       <div>
         <p className="font-light">

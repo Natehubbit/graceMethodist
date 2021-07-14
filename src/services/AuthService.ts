@@ -40,7 +40,6 @@ export default class AuthService {
 
   static authStateListener(callback: (val: boolean) => void) {
     auth.onAuthStateChanged((user) => {
-      console.log(user);
       if (user) callback(true);
       else callback(false);
     });
@@ -69,7 +68,6 @@ export default class AuthService {
   static isLoggedIn() {
     try {
       const res = auth.currentUser;
-      console.log(res);
       if (res) {
         return true;
       }

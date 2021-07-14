@@ -48,9 +48,9 @@ const Add = () => {
     }
     const res = await AuthService.createAdmin(admin);
     setLoaders((l) => ({ ...l, Admins: false }));
-    if (res) {
+    if (typeof res !== "string") {
       return alert("Admin created successfully!!");
-    }
+    } else alert(res);
     return alert("Failed to create Admin");
   };
   const onCloseModal = () => {

@@ -12,7 +12,6 @@ const ModalList: FC<ModalListProps> = ({
   onClose,
   loading,
 }) => {
-  console.log(loading);
   if (!show) return null;
   const isAdmins = header === "Admins";
   const renderData = () => {

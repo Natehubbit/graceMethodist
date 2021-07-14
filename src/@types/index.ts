@@ -16,7 +16,7 @@ export interface Suggestion {
   organisation: string;
   category: string;
   suggestion: string;
-  timestamp: Date;
+  timestamp: { seconds: number; nanoseconds: number };
 }
 
 export interface LoginForm {

@@ -18,9 +18,7 @@ const SideBar = () => {
     push(SIDE_MENU[v]);
   };
   const onLogout = async () => {
-    console.log("logging out");
     const res = await AuthService.logout();
-    console.log("loggedout");
     if (res) return replace("/");
   };
   const renderRoute = (isActive: boolean, k: SideMenuType) => {

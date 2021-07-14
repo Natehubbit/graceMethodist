@@ -68,13 +68,6 @@ const FormCard: FC<FormCardProps> = ({
         {title}
       </header>
       <div className="flex flex-col px-4 justify-center items-start">
-        {/* {isAdmin && (
-          <input
-            placeholder="Username"
-            onBlur={onBlur}
-            className="border-2 py-1 px-2 rounded-md mb-3 ring-blue-500 focus:ring-2 focus:outline-none"
-          />
-        )} */}
         <input
           placeholder={!isAdmin ? "Name" : "Email"}
           onBlur={onBlur}
